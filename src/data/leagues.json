@@ -1,0 +1,299 @@
+{
+  "domestic": [
+    {
+      "id": "premier-league",
+      "name": "Premier League",
+      "country": "England",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Premier_League.svg",
+      "icon": "Crown",
+      "theme": {
+        "primary": "purple",
+        "gradient": "from-purple-900 via-purple-800 to-indigo-900",
+        "accent": "bg-purple-500"
+      },
+      "teams": [
+        "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton",
+        "Chelsea", "Crystal Palace", "Everton", "Fulham", "Ipswich Town",
+        "Leicester City", "Liverpool", "Manchester City", "Manchester United",
+        "Newcastle United", "Nottingham Forest", "Southampton", "Tottenham",
+        "West Ham United", "Wolverhampton"
+      ]
+    },
+    {
+      "id": "laliga",
+      "name": "LaLiga",
+      "country": "Spain",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/LaLiga_logo_2023.svg",
+      "icon": "Sun",
+      "theme": {
+        "primary": "orange",
+        "gradient": "from-orange-600 via-red-600 to-yellow-500",
+        "accent": "bg-orange-500"
+      },
+      "teams": [
+        "Athletic Bilbao", "Atlético Madrid", "Barcelona", "Betis", "Celta Vigo",
+        "Espanyol", "Getafe", "Girona", "Las Palmas", "Leganés",
+        "Mallorca", "Osasuna", "Rayo Vallecano", "Real Madrid", "Real Sociedad",
+        "Sevilla", "Valencia", "Valladolid", "Villarreal", "Alavés"
+      ]
+    },
+    {
+      "id": "serie-a",
+      "name": "Serie A",
+      "country": "Italy",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Serie_A_logo_2022.svg",
+      "icon": "Shield",
+      "theme": {
+        "primary": "blue",
+        "gradient": "from-blue-950 via-blue-900 to-emerald-900",
+        "accent": "bg-blue-600"
+      },
+      "teams": [
+        "AC Milan", "Atalanta", "Bologna", "Cagliari", "Como",
+        "Empoli", "Fiorentina", "Genoa", "Inter Milan", "Juventus",
+        "Lazio", "Lecce", "Monza", "Napoli", "Parma",
+        "Roma", "Torino", "Udinese", "Venezia", "Verona"
+      ]
+    },
+    {
+      "id": "bundesliga",
+      "name": "Bundesliga",
+      "country": "Germany",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesliga_logo.svg",
+      "icon": "Target",
+      "theme": {
+        "primary": "red",
+        "gradient": "from-red-900 via-red-800 to-gray-900",
+        "accent": "bg-red-500"
+      },
+      "teams": [
+        "Augsburg", "Bayern Munich", "Bayer Leverkusen", "Bochum", "Borussia Dortmund",
+        "Borussia M'gladbach", "Eintracht Frankfurt", "Freiburg", "Heidenheim", "Hoffenheim",
+        "Holstein Kiel", "Mainz 05", "RB Leipzig", "St. Pauli", "Stuttgart",
+        "Union Berlin", "Werder Bremen", "Wolfsburg"
+      ]
+    },
+    {
+      "id": "ligue-1",
+      "name": "Ligue 1",
+      "country": "France",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ligue1.svg",
+      "icon": "Hexagon",
+      "theme": {
+        "primary": "navy",
+        "gradient": "from-blue-900 via-indigo-900 to-red-900",
+        "accent": "bg-blue-700"
+      },
+      "teams": [
+        "Angers", "Auxerre", "Brest", "Le Havre", "Lens",
+        "Lille", "Lyon", "Marseille", "Monaco", "Montpellier",
+        "Nantes", "Nice", "Paris Saint-Germain", "Reims", "Rennes",
+        "Saint-Étienne", "Strasbourg", "Toulouse"
+      ]
+    },
+    {
+      "id": "saudi-pro-league",
+      "name": "Saudi Pro League",
+      "country": "Saudi Arabia",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Saudi_Pro_League_Logo.svg",
+      "icon": "Gem",
+      "theme": {
+        "primary": "green",
+        "gradient": "from-green-900 via-emerald-900 to-green-950",
+        "accent": "bg-green-600"
+      },
+      "teams": [
+        "Al-Ahli", "Al-Ettifaq", "Al-Fateh", "Al-Fayha", "Al-Hazm",
+        "Al-Hilal", "Al-Ittihad", "Al-Khaleej", "Al-Nassr", "Al-Okhdood",
+        "Al-Qadisiyah", "Al-Raed", "Al-Riyadh", "Al-Shabab", "Al-Taawoun",
+        "Al-Wehda", "Damac", "Neom"
+      ]
+    },
+    {
+      "id": "mls",
+      "name": "MLS",
+      "country": "USA/Canada",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/MLS_crest_logo_CMYK_gradient.svg",
+      "icon": "Flag",
+      "theme": {
+        "primary": "navy",
+        "gradient": "from-blue-950 via-red-900 to-blue-950",
+        "accent": "bg-blue-800"
+      },
+      "teams": [
+        "Atlanta United", "Austin FC", "Charlotte FC", "Chicago Fire", "Colorado Rapids",
+        "Columbus Crew", "D.C. United", "FC Cincinnati", "FC Dallas", "Houston Dynamo",
+        "Inter Miami", "LA Galaxy", "LAFC", "Minnesota United", "Nashville SC",
+        "New England Revolution", "New York City FC", "New York Red Bulls", "Orlando City",
+        "Philadelphia Union", "Portland Timbers", "Real Salt Lake", "San Jose Earthquakes",
+        "Seattle Sounders", "Sporting Kansas City", "St. Louis City SC", "Toronto FC", "Vancouver Whitecaps"
+      ]
+    },
+    {
+      "id": "brasileirao",
+      "name": "Brasileirão",
+      "country": "Brazil",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Brasileirao_2002-2010.png",
+      "icon": "Palmtree",
+      "theme": {
+        "primary": "yellow",
+        "gradient": "from-green-800 via-yellow-600 to-green-800",
+        "accent": "bg-yellow-500"
+      },
+      "teams": [
+        "Atlético Mineiro", "Athletico Paranaense", "Bahia", "Botafogo", "Corinthians",
+        "Criciúma", "Cruzeiro", "Cuiabá", "Flamengo", "Fluminense",
+        "Fortaleza", "Grêmio", "Internacional", "Juventude", "Palmeiras",
+        "Red Bull Bragantino", "São Paulo", "Vasco da Gama", "Vitória"
+      ]
+    }
+  ],
+  "international": [
+    {
+      "id": "champions-league",
+      "name": "UEFA Champions League",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/UEFA_Champions_League_logo.svg",
+      "icon": "Star",
+      "theme": {
+        "primary": "navy",
+        "gradient": "from-blue-950 via-indigo-950 to-purple-950",
+        "accent": "bg-indigo-600"
+      },
+      "teams": [
+        "Arsenal", "Aston Villa", "Atlético Madrid", "Barcelona", "Bayern Munich",
+        "Bayer Leverkusen", "Benfica", "Bologna", "Borussia Dortmund", "Brest",
+        "Celtic", "Club Brugge", "Dinamo Zagreb", "Feyenoord", "Girona",
+        "Inter Milan", "Juventus", "Leipzig", "Lille", "Liverpool",
+        "Manchester City", "Monaco", "Paris Saint-Germain", "PSV", "Real Madrid",
+        "Red Star Belgrade", "Salzburg", "Shakhtar Donetsk", "Slovan Bratislava",
+        "Sparta Prague", "Sporting CP", "Sturm Graz", "Stuttgart", "Young Boys"
+      ]
+    },
+    {
+      "id": "europa-league",
+      "name": "UEFA Europa League",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/UEFA_Europa_League_logo_(2024_version).svg",
+      "icon": "Flame",
+      "theme": {
+        "primary": "orange",
+        "gradient": "from-orange-900 via-amber-800 to-orange-950",
+        "accent": "bg-orange-600"
+      },
+      "teams": [
+        "Ajax", "Anderlecht", "Athletic Bilbao", "AZ Alkmaar", "Beşiktaş",
+        "Bodø/Glimt", "Braga", "FCSB", "Fenerbahçe", "Frankfurt",
+        "Galatasaray", "Hoffenheim", "Lazio", "Lyon", "Maccabi Tel Aviv",
+        "Manchester United", "Midtjylland", "Olympiacos", "PAOK", "Porto",
+        "Rangers", "Real Sociedad", "Roma", "Slavia Prague", "Tottenham",
+        "Twente", "Union Saint-Gilloise", "Viktoria Plzeň"
+      ]
+    },
+    {
+      "id": "conference-league",
+      "name": "UEFA Conference League",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/UEFA_Europa_Conference_League_logo.svg",
+      "icon": "Sparkles",
+      "theme": {
+        "primary": "green",
+        "gradient": "from-green-900 via-emerald-800 to-teal-900",
+        "accent": "bg-emerald-600"
+      },
+      "teams": [
+        "Apoel Nicosia", "Astana", "Cercle Brugge", "Chelsea", "Copenhagen",
+        "Djurgården", "Fiorentina", "Gent", "Heidenheim", "Hearts",
+        "Jagiellonia", "Legia Warsaw", "Lugano", "Mladá Boleslav", "Molde",
+        "Olimpija Ljubljana", "Omonia Nicosia", "Panathinaikos", "Pafos", "Rapid Vienna",
+        "Shamrock Rovers", "St. Gallen", "The New Saints", "TSC Bačka Topola", "Vitória Guimarães"
+      ]
+    },
+    {
+      "id": "world-cup",
+      "name": "FIFA World Cup",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/FIFA_WorldCup_logo.svg",
+      "icon": "Trophy",
+      "theme": {
+        "primary": "gold",
+        "gradient": "from-amber-900 via-yellow-800 to-amber-950",
+        "accent": "bg-yellow-600"
+      },
+      "teams": [
+        "Argentina", "Brazil", "France", "Germany", "Spain",
+        "England", "Portugal", "Netherlands", "Belgium", "Italy",
+        "Croatia", "Morocco", "Japan", "South Korea", "USA",
+        "Mexico", "Canada", "Uruguay", "Colombia", "Ecuador",
+        "Senegal", "Ghana", "Cameroon", "Nigeria", "Australia",
+        "Saudi Arabia", "Iran", "Poland", "Switzerland", "Denmark",
+        "Serbia", "Wales"
+      ]
+    },
+    {
+      "id": "afcon",
+      "name": "AFCON",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/African_Cup_of_Nations_(ACN).svg",
+      "icon": "Globe",
+      "theme": {
+        "primary": "green",
+        "gradient": "from-green-900 via-yellow-700 to-red-900",
+        "accent": "bg-green-700"
+      },
+      "teams": [
+        "Algeria", "Angola", "Burkina Faso", "Cameroon", "Cape Verde",
+        "Côte d'Ivoire", "DR Congo", "Egypt", "Equatorial Guinea", "Gambia",
+        "Ghana", "Guinea", "Guinea-Bissau", "Mali", "Mauritania",
+        "Morocco", "Mozambique", "Namibia", "Nigeria", "Senegal",
+        "South Africa", "Tanzania", "Tunisia", "Zambia"
+      ]
+    },
+    {
+      "id": "copa-america",
+      "name": "Copa America",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Logo_de_la_Conmebol_Copa_Am%C3%A9rica.svg",
+      "icon": "Medal",
+      "theme": {
+        "primary": "sky",
+        "gradient": "from-sky-800 via-blue-700 to-sky-900",
+        "accent": "bg-sky-600"
+      },
+      "teams": [
+        "Argentina", "Bolivia", "Brazil", "Chile", "Colombia",
+        "Costa Rica", "Ecuador", "Jamaica", "Mexico", "Panama",
+        "Paraguay", "Peru", "United States", "Uruguay", "Venezuela"
+      ]
+    },
+    {
+      "id": "euro-cup",
+      "name": "Euro Cup",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/UEFA_Euro_2024_logo.svg",
+      "icon": "CircleDot",
+      "theme": {
+        "primary": "blue",
+        "gradient": "from-blue-900 via-indigo-800 to-blue-950",
+        "accent": "bg-blue-600"
+      },
+      "teams": [
+        "Albania", "Austria", "Belgium", "Croatia", "Czech Republic",
+        "Denmark", "England", "France", "Georgia", "Germany",
+        "Hungary", "Italy", "Netherlands", "Poland", "Portugal",
+        "Romania", "Scotland", "Serbia", "Slovakia", "Slovenia",
+        "Spain", "Switzerland", "Turkey", "Ukraine"
+      ]
+    },
+    {
+      "id": "caf-champions-league",
+      "name": "CAF Champions League",
+      "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/CAF_Champions_League_Trophy.svg",
+      "icon": "Zap",
+      "theme": {
+        "primary": "gold",
+        "gradient": "from-amber-800 via-yellow-700 to-orange-800",
+        "accent": "bg-amber-600"
+      },
+      "teams": [
+        "Al Ahly", "Zamalek", "Mamelodi Sundowns", "Wydad Casablanca",
+        "Raja Casablanca", "Esperance Tunis", "TP Mazembe", "Simba SC",
+        "Young Africans", "Petro de Luanda", "MC Alger", "CR Belouizdad",
+        "AS FAR", "Hearts of Oak", "Asante Kotoko", "Pyramids FC"
+      ]
+    }
+  ]
+}

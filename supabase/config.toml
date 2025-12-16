@@ -1,0 +1,10 @@
+project_id = "aemdvqmkdoxplqohmasj"
+
+[functions.analyze-caption]
+verify_jwt = true
+
+[functions.generate-update]
+verify_jwt = true
+
+[functions.process-match-screenshot]
+verify_jwt = true
