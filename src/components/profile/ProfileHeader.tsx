@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { User, Settings, Edit, Trophy, Users } from "lucide-react";
 import { EditProfileDialog } from "./EditProfileDialog";
 import { FollowButton } from "./FollowButton";
+import { NotificationsBell } from "./NotificationsBell";
 import { useFollowStats } from "@/hooks/useFollowStats";
 
 interface ProfileHeaderProps {
@@ -92,6 +93,7 @@ export const ProfileHeader = ({
           <div className="flex gap-2">
             {isOwnProfile ? (
               <>
+                <NotificationsBell />
                 <Button
                   variant="outline"
                   size="icon"

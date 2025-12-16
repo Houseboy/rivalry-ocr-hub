@@ -370,11 +370,6 @@ const Profile = () => {
               followingCount={followingCount}
             />
           </div>
-          {isOwnProfile && (
-            <div className="flex justify-end md:justify-start">
-              <NotificationsBell />
-            </div>
-          )}
         </div>
 
         {/* Upload Section - Only for own profile */}
