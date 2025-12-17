@@ -9,7 +9,7 @@ import { StadiumBackground } from "@/components/league/StadiumBackground";
 import { TeamLogoGrid } from "@/components/league/TeamLogoGrid";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
-import { toast } from "sonner";
+import { useToast } from "@/hooks/use-toast";
 import leaguesData from "@/data/leagues.json";
 
 interface LocationState {
@@ -22,13 +22,27 @@ const LeagueJoinTeamSelect = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { toast } = useToast();
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
   const [takenTeams, setTakenTeams] = useState<string[]>([]);
   const [takenTeamUsers, setTakenTeamUsers] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [loadingTeams, setLoadingTeams] = useState(true);
 
-  const state = location.state as (LocationState & { leagueData?: any }) | null;
+  // Get state from location or sessionStorage (for public league joins)
+  let state = location.state as (LocationState & { leagueData?: any }) || null;
+  
+  if (!state) {
+    try {
+      const storedState = sessionStorage.getItem('leagueJoinState');
+      if (storedState) {
+        sessionStorage.removeItem('leagueJoinState'); // Clean up
+        state = JSON.parse(storedState) as LocationState;
+      }
+    } catch (error) {
+      console.error('Error parsing stored state:', error);
+    }
+  }
 
   // Handle missing state or league type
   if (!state?.leagueType) {
@@ -121,7 +135,11 @@ const LeagueJoinTeamSelect = () => {
 
       if (joinError) {
         if (joinError.code === "23505") {
-          toast.error("This team has already been selected by another player");
+          toast({
+            title: "Team Taken",
+            description: "This team has already been selected by another player",
+            variant: "destructive"
+          });
           await fetchTakenTeams();
           setSelectedTeam(null);
           return;
@@ -129,12 +147,20 @@ const LeagueJoinTeamSelect = () => {
         throw joinError;
       }
 
-      toast.success(`Successfully joined "${state.leagueName}" as ${selectedTeam}!`);
-      // Navigate to profile to show the new league in My Leagues
-      navigate(`/profile/${user.id}`);
+      toast({
+        title: "Success!",
+        description: `Successfully joined "${state.leagueName}" as ${selectedTeam}!`,
+        variant: "default"
+      });
+      // Navigate to league dashboard to show the standings
+      navigate(`/league/${state.leagueId}`);
     } catch (error: any) {
       console.error("Error joining league:", error);
-      toast.error(error.message || "Failed to join league");
+      toast({
+        title: "Error",
+        description: error.message || "Failed to join league",
+        variant: "destructive"
+      });
     } finally {
       setLoading(false);
     }

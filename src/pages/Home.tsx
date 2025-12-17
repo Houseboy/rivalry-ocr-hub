@@ -2,9 +2,14 @@ import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Trophy, Upload, BarChart3, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import { PublicLeagueCard } from "../components/league/PublicLeagueCard";
+import { usePublicLeagues } from "../hooks/usePublicLeagues";
+import { useNavigate } from "react-router-dom";
 import heroImage from "../assets/hero-rivalry.png";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { leagues: publicLeagues, loading: leaguesLoading, userMemberships, handleJoinLeague } = usePublicLeagues(3);
   const howItWorksSteps = [
     {
       icon: Upload,
@@ -137,6 +142,72 @@ const Home = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Public Leagues Section */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold animate-fade-in">
+              Public Leagues
+            </h2>
+          </div>
+          
+          {leaguesLoading ? (
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {[...Array(3)].map((_, index) => (
+                <Card key={index} className="animate-pulse h-64 bg-muted" />
+              ))}
+            </div>
+          ) : publicLeagues.length === 0 ? (
+            <Card className="text-center py-12 max-w-2xl mx-auto">
+              <Trophy className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">No Public Leagues Yet</h3>
+              <p className="text-muted-foreground mb-4">
+                Be the first to create a public league and start the competition!
+              </p>
+              <Link to="/league">
+                <Button>Create League</Button>
+              </Link>
+            </Card>
+          ) : (
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {publicLeagues.map((league, index) => (
+                <PublicLeagueCard
+                  key={league.id}
+                  id={league.id}
+                  name={league.name}
+                  description={league.description || undefined}
+                  leagueType={league.league_type}
+                  selectedTeam={league.selected_team}
+                  currentParticipants={league.member_count}
+                  maxParticipants={league.max_participants || 20}
+                  hasStarted={league.has_started || false}
+                  isPublic={league.is_public}
+                  isUserMember={userMemberships.has(league.id)}
+                  onJoin={() => handleJoinLeague(league.id)}
+                  onView={() => navigate(`/league/${league.id}`)}
+                />
+              ))}
+            </div>
+          )}
+          
+          {/* View All Button */}
+          {!leaguesLoading && publicLeagues.length > 0 && (
+            <div className="text-center mt-8">
+              <Link to="/public-leagues">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-2 hover:bg-gray-50"
+                >
+                  <Trophy className="w-4 h-4 mr-2" />
+                  View All Public Leagues
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

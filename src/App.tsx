@@ -4,6 +4,7 @@ import Profile from './pages/Profile';
 import Analytics from './pages/Analytics';
 import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
+import PublicLeagues from './pages/PublicLeagues';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { Navigation } from '@/components/Navigation';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
@@ -24,6 +25,7 @@ const AppShell = () => {
     <div className="min-h-screen bg-background">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/public-leagues" element={<PublicLeagues />} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/league" element={<ProtectedRoute><LeagueHome /></ProtectedRoute>} />
         <Route path="/league/host" element={<ProtectedRoute><LeagueHost /></ProtectedRoute>} />
