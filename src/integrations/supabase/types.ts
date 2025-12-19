@@ -795,6 +795,82 @@ export type Database = {
         }
         Relationships: []
       }
+      league_chat_messages: {
+        Row: {
+          id: string
+          league_id: string
+          user_id: string
+          content: string
+          message_type: string
+          created_at: string
+          updated_at: string
+          reply_to_id: string | null
+          photo_url: string | null
+          photo_description: string | null
+        }
+        Insert: {
+          id?: string
+          league_id: string
+          user_id: string
+          content: string
+          message_type?: string
+          created_at?: string
+          updated_at?: string
+          reply_to_id?: string | null
+          photo_url?: string | null
+          photo_description?: string | null
+        }
+        Update: {
+          id?: string
+          league_id?: string
+          user_id?: string
+          content?: string
+          message_type?: string
+          created_at?: string
+          updated_at?: string
+          reply_to_id?: string | null
+          photo_url?: string | null
+          photo_description?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "league_chat_messages_league_id_fkey"
+            columns: ["league_id"]
+            isOneToOne: false
+            referencedRelation: "leagues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      league_chat_mentions: {
+        Row: {
+          id: string
+          message_id: string
+          mentioned_user_id: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          message_id: string
+          mentioned_user_id: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          message_id?: string
+          mentioned_user_id?: string
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "league_chat_mentions_message_id_fkey"
+            columns: ["message_id"]
+            isOneToOne: false
+            referencedRelation: "league_chat_messages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       league_standings: {

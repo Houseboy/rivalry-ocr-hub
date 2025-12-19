@@ -13,7 +13,8 @@ import {
   Trophy,
   Calendar,
   ListOrdered,
-  Settings
+  Settings,
+  MessageCircle
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -29,6 +30,7 @@ import { TournamentBracket } from "@/components/league/TournamentBracket";
 import { AdminPanel } from "@/components/league/AdminPanel";
 import { UEFATournamentView } from "@/components/league/UEFATournamentView";
 import { CopyButton } from "@/components/ui/copy-button";
+import { LeagueChat } from "@/components/chat/LeagueChat";
 import leaguesData from "@/data/leagues.json";
 
 interface League {
@@ -412,9 +414,9 @@ const LeagueDashboard = () => {
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className={cn(
             "grid w-full mb-6",
-            isHost && (league.league_type === "uefa" || league.league_type === "champions-league" || league.league_type === "europa-league" || league.league_type === "conference-league") ? "grid-cols-7" : 
-            isHost ? "grid-cols-6" : 
-            (league.league_type === "uefa" || league.league_type === "champions-league" || league.league_type === "europa-league" || league.league_type === "conference-league") ? "grid-cols-6" : "grid-cols-5"
+            isHost && (league.league_type === "uefa" || league.league_type === "champions-league" || league.league_type === "europa-league" || league.league_type === "conference-league") ? "grid-cols-8" : 
+            isHost ? "grid-cols-7" : 
+            (league.league_type === "uefa" || league.league_type === "champions-league" || league.league_type === "europa-league" || league.league_type === "conference-league") ? "grid-cols-7" : "grid-cols-6"
           )}>
             <TabsTrigger value="standings" className="flex items-center gap-2">
               <ListOrdered className="w-4 h-4" />
@@ -434,6 +436,10 @@ const LeagueDashboard = () => {
                 <span className="hidden sm:inline">UEFA</span>
               </TabsTrigger>
             )}
+            <TabsTrigger value="chat" className="flex items-center gap-2">
+              <MessageCircle className="w-4 h-4" />
+              <span className="hidden sm:inline">Chat</span>
+            </TabsTrigger>
             <TabsTrigger value="members" className="flex items-center gap-2">
               <Users className="w-4 h-4" />
               <span className="hidden sm:inline">Members</span>
@@ -532,6 +538,26 @@ const LeagueDashboard = () => {
                 />
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* Chat Tab */}
+          <TabsContent value="chat">
+            <LeagueChat 
+              leagueId={league.id}
+              leagueName={league.name}
+              members={members.map(m => ({ 
+                id: m.user_id, 
+                profile: m.profile ? { 
+                  id: m.user_id,
+                  username: m.profile.username || '',
+                  avatar_url: m.profile.avatar_url || ''
+                } : { 
+                  id: m.user_id,
+                  username: '',
+                  avatar_url: ''
+                }
+              }))}
+            />
           </TabsContent>
 
           {/* UEFA Tournament Tab */}
