@@ -29,6 +29,14 @@ const LeagueCreate = () => {
   const [copied, setCopied] = useState(false);
 
   const { leagueType, leagueName, selectedTeam } = location.state || {};
+  
+  console.log('LeagueCreate: Component initialized', {
+    locationState: location.state,
+    leagueType,
+    leagueName,
+    selectedTeam,
+    user: user?.id
+  });
 
   const [formData, setFormData] = useState({
     name: leagueName ? `${leagueName} League` : "",
@@ -38,7 +46,13 @@ const LeagueCreate = () => {
   });
 
   useEffect(() => {
+    console.log('LeagueCreate: useEffect checking required data', {
+      leagueType,
+      selectedTeam
+    });
+    
     if (!leagueType || !selectedTeam) {
+      console.log('LeagueCreate: Missing required data, navigating back');
       navigate("/league/host");
     }
   }, [leagueType, selectedTeam, navigate]);
@@ -46,13 +60,30 @@ const LeagueCreate = () => {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('LeagueCreate: Submit button clicked', { user, leagueType, selectedTeam });
+    
     if (!user) {
+      console.error('LeagueCreate: No user found');
       toast.error("Please sign in to create a league");
+      return;
+    }
+
+    if (!leagueType || !selectedTeam) {
+      console.error('LeagueCreate: Missing leagueType or selectedTeam', { leagueType, selectedTeam });
+      toast.error("Missing league information. Please go back and select a team.");
       return;
     }
 
     setLoading(true);
     try {
+      console.log('LeagueCreate: Creating league with data', {
+        host_id: user.id,
+        name: formData.name,
+        league_type: leagueType,
+        selected_team: selectedTeam,
+        join_code: formData.joinCode
+      });
+
       // Create the league
       const { data: league, error: leagueError } = await supabase
         .from("leagues")
@@ -68,9 +99,12 @@ const LeagueCreate = () => {
         .select()
         .single();
 
+      console.log('LeagueCreate: League creation result', { league, leagueError });
+
       if (leagueError) throw leagueError;
 
       // Add host as first member
+      console.log('LeagueCreate: Adding host as member');
       const { error: memberError } = await supabase
         .from("league_members")
         .insert({
@@ -78,6 +112,8 @@ const LeagueCreate = () => {
           user_id: user.id,
           team: selectedTeam
         });
+
+      console.log('LeagueCreate: Member addition result', { memberError });
 
       if (memberError) throw memberError;
 

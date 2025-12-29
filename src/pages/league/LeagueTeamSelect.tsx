@@ -36,6 +36,12 @@ const LeagueTeamSelect = () => {
 
   const handleContinue = () => {
     if (selectedTeam) {
+      console.log('LeagueTeamSelect: Navigating to create league', {
+        leagueType: leagueInfo.id,
+        leagueName: leagueInfo.name,
+        selectedTeam
+      });
+      
       navigate(`/league/create`, { 
         state: { 
           leagueType: leagueInfo.id,
@@ -43,6 +49,8 @@ const LeagueTeamSelect = () => {
           selectedTeam 
         } 
       });
+    } else {
+      console.log('LeagueTeamSelect: No team selected');
     }
   };
 

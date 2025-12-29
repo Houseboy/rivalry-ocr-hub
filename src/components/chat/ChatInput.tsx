@@ -151,14 +151,20 @@ export const ChatInput = ({
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB limit
-        toast.error('Photo must be smaller than 5MB');
+      // Check file size (2MB limit for better UX)
+      const maxSize = 2 * 1024 * 1024; // 2MB
+      if (file.size > maxSize) {
+        toast.error(`Photo must be smaller than 2MB. Current size: ${(file.size / 1024 / 1024).toFixed(2)}MB`);
         return;
       }
-      if (!file.type.startsWith('image/')) {
-        toast.error('Please select an image file');
+      
+      // Check file type
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      if (!allowedTypes.includes(file.type)) {
+        toast.error('Please select a valid image file (JPEG, PNG, GIF, or WebP)');
         return;
       }
+      
       setSelectedFile(file);
     }
   };
