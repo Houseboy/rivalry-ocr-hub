@@ -79,15 +79,19 @@ const Auth = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Auth: Starting sign in process', { email });
 
     try {
       const validated = authSchema.parse({ email, password });
       setLoading(true);
+      console.log('Auth: Validation passed, attempting sign in');
 
-      const { error } = await supabase.auth.signInWithPassword({
+      const { error, data } = await supabase.auth.signInWithPassword({
         email: validated.email,
         password: validated.password,
       });
+
+      console.log('Auth: Sign in result', { hasError: !!error, hasData: !!data, error: error?.message });
 
       if (error) {
         if (error.message.includes("Invalid login credentials")) {
@@ -100,6 +104,7 @@ const Auth = () => {
           throw error;
         }
       } else {
+        console.log('Auth: Sign in successful, navigating to home');
         toast({
           title: "Welcome back!",
           description: "Successfully signed in.",
@@ -107,6 +112,7 @@ const Auth = () => {
         navigate("/");
       }
     } catch (error) {
+      console.error('Auth: Sign in error', error);
       if (error instanceof z.ZodError) {
         toast({
           title: "Validation Error",
